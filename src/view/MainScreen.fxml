@@ -1,0 +1,530 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #0b090a;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainScreen">
+    <children>
+        <TabPane prefHeight="567.0" prefWidth="800.0" style="-fx-border-radius: 5;" tabClosingPolicy="UNAVAILABLE">
+            <tabs>
+                <Tab fx:id="customersTab" text="Customers">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="customersTabTableView" layoutX="13.0" layoutY="25.0" onMouseClicked="#getSelectedCustomerData" prefHeight="243.0" prefWidth="774.0" style="-fx-background-color: #f5f3f4;">
+                          <columns>
+                            <TableColumn fx:id="customersTabIDColumn" prefWidth="53.0" text="ID" />
+                            <TableColumn fx:id="customersTabNameColumn" prefWidth="141.0" text="Customer Name" />
+                              <TableColumn fx:id="customersTabAddressColumn" prefWidth="222.0" text="Address" />
+                              <TableColumn fx:id="customersTabDivisionColumn" minWidth="0.0" prefWidth="98.0" text="Division" />
+                              <TableColumn fx:id="customersTabPostalCodeColumn" minWidth="0.0" prefWidth="98.0" text="Postal Code" />
+                              <TableColumn fx:id="customersTabPhoneNumberColumn" minWidth="0.0" prefWidth="124.0" text="Phone Number" />
+                          </columns>
+                        </TableView>
+                        <Text fill="#f5f3f4" layoutX="241.0" layoutY="299.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Customer Information">
+                           <font>
+                              <Font name="Trebuchet MS Bold" size="14.0" />
+                           </font>
+                        </Text>
+                        <VBox layoutX="15.0" layoutY="325.0" prefHeight="220.0" prefWidth="288.0" spacing="20.0">
+                           <children>
+                              <HBox alignment="CENTER" prefHeight="25.0" prefWidth="286.0">
+                                 <children>
+                                    <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Customer ID:" wrappingWidth="122.7431640625">
+                                       <font>
+                                          <Font name="Trebuchet MS" size="13.0" />
+                                       </font>
+                                    </Text>
+                                    <TextField fx:id="customerIDTextField" alignment="TOP_LEFT" disable="true" opacity="0.75" promptText="Auto Generated ID" />
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" layoutX="11.0" layoutY="11.0" prefHeight="25.0" prefWidth="286.0">
+                                 <children>
+                                    <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Customer Name:" wrappingWidth="122.7431640625">
+                                       <font>
+                                          <Font name="Trebuchet MS" size="13.0" />
+                                       </font>
+                                    </Text>
+                                    <TextField fx:id="customerNameTextField" alignment="TOP_LEFT" promptText="Enter Customer Name" />
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" layoutX="11.0" layoutY="37.0" prefHeight="25.0" prefWidth="286.0">
+                                 <children>
+                                    <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Address:" wrappingWidth="122.7431640625">
+                                       <font>
+                                          <Font name="Trebuchet MS" size="13.0" />
+                                       </font>
+                                    </Text>
+                                    <TextField fx:id="addressTextField" alignment="TOP_LEFT" promptText="Enter Address" />
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" layoutX="11.0" layoutY="63.0" prefHeight="25.0" prefWidth="286.0">
+                                 <children>
+                                    <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Country" wrappingWidth="122.7431640625">
+                                       <font>
+                                          <Font name="Trebuchet MS" size="13.0" />
+                                       </font>
+                                    </Text>
+                                    <ComboBox fx:id="countryComboBox" onAction="#setDivisions" prefHeight="26.0" prefWidth="160.0" promptText="Select Country" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                        <Text fill="#f5f3f4" layoutX="641.0" layoutY="300.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Customer Options">
+                           <font>
+                              <Font name="Trebuchet MS Bold" size="14.0" />
+                           </font>
+                        </Text>
+                        <VBox alignment="TOP_CENTER" layoutX="612.0" layoutY="325.0" prefHeight="205.0" prefWidth="174.0" spacing="10.0">
+                           <children>
+                              <Button fx:id="addCustomerButton" mnemonicParsing="false" prefHeight="35.0" prefWidth="170.0" text="Add Customer ">
+                                 <font>
+                                    <Font name="Trebuchet MS Bold" size="14.0" />
+                                 </font>
+                              </Button>
+                              <Button fx:id="updateCustomerButton" disable="true" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="170.0" text="Update Customer">
+                                 <font>
+                                    <Font name="Trebuchet MS Bold" size="14.0" />
+                                 </font>
+                              </Button>
+                              <Button fx:id="deleteCustomerButton" disable="true" layoutX="10.0" layoutY="42.0" mnemonicParsing="false" onAction="#deleteCustomer" prefHeight="35.0" prefWidth="170.0" text="Delete Customer">
+                                 <font>
+                                    <Font name="Trebuchet MS Bold" size="14.0" />
+                                 </font>
+                              </Button>
+                              <Button fx:id="customersClearAllFieldsButton" disable="true" layoutX="10.0" layoutY="74.0" mnemonicParsing="false" onAction="#clearAllCustomersFields" prefHeight="35.0" prefWidth="170.0" text="Clear All Fields">
+                                 <font>
+                                    <Font name="Trebuchet MS Bold" size="14.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                        </VBox>
+                        <VBox layoutX="319.0" layoutY="325.0" prefHeight="220.0" prefWidth="288.0" spacing="20.0">
+                           <children>
+                              <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="25.0" prefWidth="286.0" />
+                              <HBox alignment="CENTER" layoutX="11.0" layoutY="141.0" prefHeight="25.0" prefWidth="286.0">
+                                 <children>
+                                    <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Phone Number:" wrappingWidth="122.7431640625">
+                                       <font>
+                                          <Font name="Trebuchet MS" size="13.0" />
+                                       </font>
+                                    </Text>
+                                    <TextField fx:id="phoneNumberTextField" alignment="TOP_LEFT" promptText="Enter Phone Number" />
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" layoutX="11.0" layoutY="63.0" prefHeight="25.0" prefWidth="286.0">
+                                 <children>
+                                    <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="First-Level Division:" wrappingWidth="122.7431640625">
+                                       <font>
+                                          <Font name="Trebuchet MS" size="13.0" />
+                                       </font>
+                                    </Text>
+                                    <ComboBox fx:id="firstLevelDivisionComboBox" prefHeight="26.0" prefWidth="160.0" promptText="Select First-Level Division" />
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" layoutX="11.0" layoutY="63.0" prefHeight="25.0" prefWidth="286.0">
+                                 <children>
+                                    <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Postal Code:" wrappingWidth="122.7431640625">
+                                       <font>
+                                          <Font name="Trebuchet MS" size="13.0" />
+                                       </font>
+                                    </Text>
+                                    <TextField fx:id="postalCodeTextField" alignment="TOP_LEFT" promptText="Enter Postal Code" />
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </children></AnchorPane>
+                    </content>
+                </Tab>
+            <Tab fx:id="appointmentsTab" text="Appointments">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TabPane layoutX="7.0" layoutY="14.0" prefHeight="248.0" prefWidth="786.0" style="-fx-border-color: grey; -fx-border-radius: 2;" tabClosingPolicy="UNAVAILABLE">
+                          <tabs>
+                            <Tab fx:id="appointmentsWeekTab" text="Week">
+                              <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <TableView fx:id="appointmentsWeekTableView" layoutX="5.0" layoutY="7.0" onMouseClicked="#getSelectedAppointmentData" prefHeight="200.0" prefWidth="774.0">
+                                            <columns>
+                                              <TableColumn fx:id="weekAppointmentIDColumn" prefWidth="91.0" text="Appointment ID" />
+                                              <TableColumn fx:id="weekTitleColumn" prefWidth="104.0" text="Title" />
+                                                <TableColumn fx:id="weekCustomerIDColumn" minWidth="2.0" prefWidth="74.0" text="Customer ID" />
+                                                <TableColumn fx:id="weekContactColumn" prefWidth="75.0" text="Contact ID" />
+                                                <TableColumn fx:id="weekDescriptionColumn" prefWidth="91.0" text="Description" />
+                                                <TableColumn fx:id="weekLocationColumn" prefWidth="85.0" text="Location" />
+                                                <TableColumn fx:id="weekTypeColumn" prefWidth="73.0" text="Type" />
+                                                <TableColumn fx:id="weekStartColumn" prefWidth="90.0" text="Start Date/Time" />
+                                                <TableColumn fx:id="weekEndColumn" minWidth="0.0" prefWidth="90.0" text="End Date/Time" />
+                                                <TableColumn fx:id="weekUserIDColumn" prefWidth="60.0" text="User ID" />
+                                            </columns>
+                                          </TableView>
+                                       </children>
+                                    </AnchorPane>
+                              </content>
+                            </Tab>
+                            <Tab fx:id="appointmentsMonthTab" text="Month">
+                              <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <TableView fx:id="appointmentsMonthTableView" layoutX="5.0" layoutY="7.0" onMouseClicked="#getSelectedAppointmentData" prefHeight="200.0" prefWidth="774.0">
+                                             <columns>
+                                                <TableColumn fx:id="monthAppointmentIDColumn" prefWidth="91.0" text="Appointment ID" />
+                                                <TableColumn fx:id="monthTitleColumn" prefWidth="104.0" text="Title" />
+                                                <TableColumn fx:id="monthCustomerIDColumn" minWidth="2.0" prefWidth="74.0" text="Customer ID" />
+                                                <TableColumn fx:id="monthContactColumn" prefWidth="75.0" text="Contact ID" />
+                                                <TableColumn fx:id="monthDescriptionColumn" prefWidth="91.0" text="Description" />
+                                                <TableColumn fx:id="monthLocationColumn" prefWidth="85.0" text="Location" />
+                                                <TableColumn fx:id="monthTypeColumn" prefWidth="73.0" text="Type" />
+                                                <TableColumn fx:id="monthStartColumn" prefWidth="90.0" text="Start Date/Time" />
+                                                <TableColumn fx:id="monthEndColumn" minWidth="0.0" prefWidth="90.0" text="End Date/Time" />
+                                                <TableColumn fx:id="monthUserIDColumn" prefWidth="60.0" text="User ID" />
+                                             </columns>
+                                          </TableView>
+                                       </children></AnchorPane>
+                              </content>
+                            </Tab>
+                              <Tab fx:id="appointmentsAllTab" text="All">
+                                 <content>
+                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <TableView fx:id="appointmentsAllTableView" layoutX="5.0" layoutY="7.0" onMouseClicked="#getSelectedAppointmentData" prefHeight="200.0" prefWidth="774.0" style="-fx-background-color: #f5f3f4;">
+                                             <columns>
+                                                <TableColumn fx:id="allAppointmentIDColumn" prefWidth="91.0" text="Appointment ID" />
+                                                <TableColumn fx:id="allTitleColumn" prefWidth="104.0" text="Title" />
+                                                <TableColumn fx:id="allCustomerIDColumn" minWidth="2.0" prefWidth="74.0" text="Customer ID" />
+                                                <TableColumn fx:id="allContactColumn" prefWidth="75.0" text="Contact ID" />
+                                                <TableColumn fx:id="allDescriptionColumn" prefWidth="91.0" text="Description" />
+                                                <TableColumn fx:id="allLocationColumn" prefWidth="85.0" text="Location" />
+                                                <TableColumn fx:id="allTypeColumn" prefWidth="73.0" text="Type" />
+                                                <TableColumn fx:id="allStartColumn" prefWidth="90.0" text="Start Date/Time" />
+                                                <TableColumn fx:id="allEndColumn" minWidth="0.0" prefWidth="90.0" text="End Date/Time" />
+                                                <TableColumn fx:id="allUserIDColumn" prefWidth="60.0" text="User ID" />
+                                             </columns>
+                                          </TableView>
+                                       </children></AnchorPane>
+                                 </content>
+                              </Tab>
+                          </tabs>
+                        </TabPane>
+                        <VBox layoutX="15.0" layoutY="325.0" prefHeight="219.0" prefWidth="288.0" spacing="20.0">
+                           <children>
+                              <HBox alignment="CENTER" prefHeight="25.0" prefWidth="286.0">
+                                 <children>
+                                    <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Appointment ID:" wrappingWidth="122.7431640625">
+                                       <font>
+                                          <Font name="Trebuchet MS" size="13.0" />
+                                       </font>
+                                    </Text>
+                                    <TextField fx:id="appointmentIDTextField" alignment="TOP_LEFT" disable="true" opacity="0.75" promptText="Auto Generated ID" />
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" layoutX="11.0" layoutY="11.0" prefHeight="25.0" prefWidth="286.0">
+                                 <children>
+                                    <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Title:" wrappingWidth="122.7431640625">
+                                       <font>
+                                          <Font name="Trebuchet MS" size="13.0" />
+                                       </font>
+                                    </Text>
+                                    <TextField fx:id="appointmentTitleTextField" alignment="TOP_LEFT" promptText="Enter Title" />
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" layoutX="11.0" layoutY="37.0" prefHeight="25.0" prefWidth="286.0">
+                                 <children>
+                                    <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Description:" wrappingWidth="122.7431640625">
+                                       <font>
+                                          <Font name="Trebuchet MS" size="13.0" />
+                                       </font>
+                                    </Text>
+                                    <TextField fx:id="appointmentDescriptionTextField" alignment="TOP_LEFT" promptText="Enter Description" />
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" layoutX="11.0" layoutY="63.0" prefHeight="25.0" prefWidth="286.0">
+                                 <children>
+                                    <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Location:" wrappingWidth="122.7431640625">
+                                       <font>
+                                          <Font name="Trebuchet MS" size="13.0" />
+                                       </font>
+                                    </Text>
+                                    <TextField fx:id="appointmentLocationTextField" alignment="TOP_LEFT" promptText="Enter Location" />
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" layoutX="11.0" layoutY="63.0" prefHeight="25.0" prefWidth="286.0">
+                                 <children>
+                                    <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Contact:" wrappingWidth="122.7431640625">
+                                       <font>
+                                          <Font name="Trebuchet MS" size="13.0" />
+                                       </font>
+                                    </Text>
+                                    <ComboBox fx:id="appointmentContactComboBox" prefHeight="26.0" prefWidth="160.0" promptText="Select Contact" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                        <VBox layoutX="319.0" layoutY="325.0" prefHeight="219.0" prefWidth="288.0" spacing="20.0">
+                           <children>
+                              <HBox alignment="CENTER" prefHeight="25.0" prefWidth="286.0">
+                                 <children>
+                                    <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Type:" wrappingWidth="122.7431640625">
+                                       <font>
+                                          <Font name="Trebuchet MS" size="13.0" />
+                                       </font>
+                                    </Text>
+                                    <TextField fx:id="appointmentTypeTextField" alignment="TOP_LEFT" promptText="Enter Type" />
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" layoutX="11.0" layoutY="11.0" prefHeight="25.0" prefWidth="286.0">
+                                 <children>
+                                    <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Start Date/Time:" wrappingWidth="100.7431640625">
+                                       <font>
+                                          <Font name="Trebuchet MS" size="13.0" />
+                                       </font>
+                                    </Text>
+                                    <DatePicker fx:id="appointmentStartDatePicker" prefHeight="26.0" prefWidth="127.0" promptText="Select Date" />
+                                    <ComboBox fx:id="appointmentStartTimeComboBox" prefHeight="26.0" prefWidth="96.0" promptText="12:00" />
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" layoutX="10.0" layoutY="56.0" prefHeight="25.0" prefWidth="286.0">
+                                 <children>
+                                    <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="End Date/Time:" wrappingWidth="100.7431640625">
+                                       <font>
+                                          <Font name="Trebuchet MS" size="13.0" />
+                                       </font>
+                                    </Text>
+                                    <DatePicker fx:id="appointmentEndDatePicker" prefHeight="26.0" prefWidth="127.0" promptText="Select Date" />
+                                    <ComboBox fx:id="appointmentEndTimeComboBox" prefHeight="26.0" prefWidth="96.0" promptText="12:00" />
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" layoutX="11.0" layoutY="63.0" prefHeight="25.0" prefWidth="286.0">
+                                 <children>
+                                    <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Customer ID:" wrappingWidth="122.7431640625">
+                                       <font>
+                                          <Font name="Trebuchet MS" size="13.0" />
+                                       </font>
+                                    </Text>
+                                    <TextField fx:id="appointmentCustomerIDTextField" alignment="TOP_LEFT" promptText="Enter Customer ID" />
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" layoutX="11.0" layoutY="63.0" prefHeight="25.0" prefWidth="286.0">
+                                 <children>
+                                    <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="User ID:" wrappingWidth="122.7431640625">
+                                       <font>
+                                          <Font name="Trebuchet MS" size="13.0" />
+                                       </font>
+                                    </Text>
+                                    <TextField fx:id="appointmentUserIDTextField" alignment="TOP_LEFT" promptText="Enter User ID" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                        <Text fill="#f5f3f4" layoutX="234.0" layoutY="299.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Appointment Information">
+                           <font>
+                              <Font name="Trebuchet MS Bold" size="14.0" />
+                           </font>
+                        </Text>
+                        <Text fill="#f5f3f4" layoutX="629.0" layoutY="299.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Appointment Options">
+                           <font>
+                              <Font name="Trebuchet MS Bold" size="14.0" />
+                           </font>
+                        </Text>
+                        <VBox alignment="TOP_CENTER" layoutX="612.0" layoutY="325.0" prefHeight="205.0" prefWidth="174.0" spacing="10.0">
+                           <children>
+                              <Button fx:id="addAppointmentButton" mnemonicParsing="false" onAction="#addAppointment" prefHeight="35.0" prefWidth="170.0" text="Add Appointment ">
+                                 <font>
+                                    <Font name="Trebuchet MS Bold" size="14.0" />
+                                 </font>
+                              </Button>
+                              <Button fx:id="updateAppointmentButton" disable="true" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#updateAppointment" prefHeight="35.0" prefWidth="170.0" text="Update Appointment">
+                                 <font>
+                                    <Font name="Trebuchet MS Bold" size="14.0" />
+                                 </font>
+                              </Button>
+                              <Button fx:id="deleteAppointmentButton" disable="true" layoutX="10.0" layoutY="42.0" mnemonicParsing="false" onAction="#deleteAppointment" prefHeight="35.0" prefWidth="170.0" text="Delete Appointment">
+                                 <font>
+                                    <Font name="Trebuchet MS Bold" size="14.0" />
+                                 </font>
+                              </Button>
+                              <Button fx:id="appointmentsClearAllFieldsButton" disable="true" layoutX="10.0" layoutY="74.0" mnemonicParsing="false" onAction="#clearAllAppointmentsFields" prefHeight="35.0" prefWidth="170.0" text="Clear All Fields">
+                                 <font>
+                                    <Font name="Trebuchet MS Bold" size="14.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+                <Tab fx:id="reportsTab" onSelectionChanged="#initializeReportsTab" text="Reports">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TabPane layoutX="13.0" layoutY="17.0" prefHeight="507.0" prefWidth="774.0" style="-fx-border-color: grey; -fx-border-width: 2;" tabClosingPolicy="UNAVAILABLE">
+                          <tabs>
+                            <Tab fx:id="reportsTypeTab" text="Appointments by Type">
+                              <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <TableView fx:id="reportsTypeTableView" layoutY="49.0" prefHeight="426.0" prefWidth="774.0" style="-fx-background-color: #f5f3f4;">
+                                             <columns>
+                                                <TableColumn fx:id="typeAppointmentIDColumn" prefWidth="91.0" text="Appointment ID" />
+                                                <TableColumn fx:id="typeTitleColumn" prefWidth="104.0" text="Title" />
+                                                <TableColumn fx:id="typeCustomerIDColumn" minWidth="2.0" prefWidth="74.0" text="Customer ID" />
+                                                <TableColumn fx:id="typeContactColumn" prefWidth="75.0" text="Contact ID" />
+                                                <TableColumn fx:id="typeDescriptionColumn" prefWidth="91.0" text="Description" />
+                                                <TableColumn fx:id="typeLocationColumn" prefWidth="85.0" text="Location" />
+                                                <TableColumn fx:id="typeTypeColumn" prefWidth="73.0" text="Type" />
+                                                <TableColumn fx:id="typeStartColumn" prefWidth="90.0" text="Start Date/Time" />
+                                                <TableColumn fx:id="typeEndColumn" minWidth="0.0" prefWidth="90.0" text="End Date/Time" />
+                                             </columns>
+                                          </TableView>
+                                          <ComboBox fx:id="reportsAppointmentTypeComboBox" layoutX="9.0" layoutY="11.0" onAction="#getAppointmentsByType" prefHeight="26.0" prefWidth="198.0" promptText="Select Appointment Type" />
+                                          <Text fill="#f5f3f4" layoutX="500.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Appointments by Type" textAlignment="RIGHT" wrappingWidth="255.21630859375">
+                                             <font>
+                                                <Font name="Trebuchet MS Bold" size="18.0" />
+                                             </font>
+                                          </Text>
+                                          <Label fx:id="reportsTypeTotalCountLabel" layoutX="219.0" layoutY="16.0" prefHeight="16.0" prefWidth="143.0" text="Total Count: " textFill="LIGHTGRAY">
+                                             <font>
+                                                <Font name="Trebuchet MS" size="13.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </AnchorPane>
+                              </content>
+                            </Tab>
+                            <Tab fx:id="reportsMonthTab" onSelectionChanged="#fillMonthsComboBox" text="Appointments By Month">
+                              <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                              </content>
+                                 <content>
+                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <TableView fx:id="reportsMonthTableView" layoutY="49.0" prefHeight="426.0" prefWidth="774.0" style="-fx-background-color: #f5f3f4;">
+                                             <columns>
+                                                <TableColumn fx:id="reportsmonthAppointmentIDColumn" prefWidth="91.0" text="Appointment ID" />
+                                                <TableColumn fx:id="reportsmonthTitleColumn" prefWidth="104.0" text="Title" />
+                                                <TableColumn fx:id="reportsmonthCustomerIDColumn" minWidth="2.0" prefWidth="74.0" text="Customer ID" />
+                                                <TableColumn fx:id="reportsmonthContactColumn" prefWidth="75.0" text="Contact ID" />
+                                                <TableColumn fx:id="reportsmonthDescriptionColumn" prefWidth="91.0" text="Description" />
+                                                <TableColumn fx:id="reportsmonthLocationColumn" prefWidth="85.0" text="Location" />
+                                                <TableColumn fx:id="reportsmonthTypeColumn" prefWidth="73.0" text="Type" />
+                                                <TableColumn fx:id="reportsmonthStartColumn" prefWidth="90.0" text="Start Date/Time" />
+                                                <TableColumn fx:id="reportsmonthEndColumn" minWidth="0.0" prefWidth="90.0" text="End Date/Time" />
+                                             </columns>
+                                          </TableView>
+                                          <ComboBox fx:id="reportsAppointmentMonthComboBox" layoutX="9.0" layoutY="11.0" onAction="#getAppointmentsByMonth" prefHeight="26.0" prefWidth="198.0" promptText="Select Month" />
+                                          <Text fill="#f5f3f4" layoutX="500.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Appointments by Month" textAlignment="RIGHT" wrappingWidth="255.21630859375">
+                                             <font>
+                                                <Font name="Trebuchet MS Bold" size="18.0" />
+                                             </font>
+                                          </Text>
+                                          <Label fx:id="reportsMonthTotalCountLabel" layoutX="219.0" layoutY="16.0" prefHeight="16.0" prefWidth="143.0" text="Total Count: " textFill="LIGHTGRAY">
+                                             <font>
+                                                <Font name="Trebuchet MS" size="13.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </AnchorPane>
+                                 </content>
+                            </Tab>
+                              <Tab fx:id="reportsContactTab" onSelectionChanged="#fillContactsComboBox" text="Appointments By Contact">
+                                 <content>
+                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <TableView fx:id="reportsContactTableView" layoutY="49.0" prefHeight="426.0" prefWidth="774.0" style="-fx-background-color: #f5f3f4;">
+                                             <columns>
+                                                <TableColumn fx:id="contactAppointmentIDColumn" prefWidth="91.0" text="Appointment ID" />
+                                                <TableColumn fx:id="contactTitleColumn" prefWidth="104.0" text="Title" />
+                                                <TableColumn fx:id="contactCustomerIDColumn" minWidth="2.0" prefWidth="74.0" text="Customer ID" />
+                                                <TableColumn fx:id="contactContactColumn" prefWidth="75.0" text="Contact ID" />
+                                                <TableColumn fx:id="contactDescriptionColumn" prefWidth="91.0" text="Description" />
+                                                <TableColumn fx:id="contactLocationColumn" prefWidth="85.0" text="Location" />
+                                                <TableColumn fx:id="contactTypeColumn" prefWidth="73.0" text="Type" />
+                                                <TableColumn fx:id="contactStartColumn" prefWidth="90.0" text="Start Date/Time" />
+                                                <TableColumn fx:id="contactEndColumn" minWidth="0.0" prefWidth="90.0" text="End Date/Time" />
+                                             </columns>
+                                          </TableView>
+                                          <ComboBox fx:id="reportsAppointmentContactComboBox" layoutX="9.0" layoutY="11.0" onAction="#getAppointmentsByContact" prefHeight="26.0" prefWidth="198.0" promptText="Select Contact" />
+                                          <Text fill="#f5f3f4" layoutX="500.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Appointments by Contact" textAlignment="RIGHT" wrappingWidth="255.21630859375">
+                                             <font>
+                                                <Font name="Trebuchet MS Bold" size="18.0" />
+                                             </font>
+                                          </Text>
+                                          <Label fx:id="reportsContactTotalCountLabel" layoutX="219.0" layoutY="16.0" prefHeight="16.0" prefWidth="143.0" text="Total Count: " textFill="LIGHTGRAY">
+                                             <font>
+                                                <Font name="Trebuchet MS" size="13.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </AnchorPane>
+                                 </content>
+                              </Tab>
+                              <Tab fx:id="reportsPastTab" onSelectionChanged="#getPastAppointments" text="Past Appointments">
+                                 <content>
+                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <TableView fx:id="reportsPastTableView" layoutY="49.0" prefHeight="426.0" prefWidth="774.0" style="-fx-background-color: #f5f3f4;">
+                                             <columns>
+                                                <TableColumn fx:id="pastAppointmentIDColumn" prefWidth="91.0" text="Appointment ID" />
+                                                <TableColumn fx:id="pastTitleColumn" prefWidth="104.0" text="Title" />
+                                                <TableColumn fx:id="pastCustomerIDColumn" minWidth="2.0" prefWidth="74.0" text="Customer ID" />
+                                                <TableColumn fx:id="pastContactColumn" prefWidth="75.0" text="Contact ID" />
+                                                <TableColumn fx:id="pastDescriptionColumn" prefWidth="91.0" text="Description" />
+                                                <TableColumn fx:id="pastLocationColumn" prefWidth="85.0" text="Location" />
+                                                <TableColumn fx:id="pastTypeColumn" prefWidth="73.0" text="Type" />
+                                                <TableColumn fx:id="pastStartColumn" prefWidth="90.0" text="Start Date/Time" />
+                                                <TableColumn fx:id="pastEndColumn" minWidth="0.0" prefWidth="90.0" text="End Date/Time" />
+                                             </columns>
+                                          </TableView>
+                                          <Text fill="#f5f3f4" layoutX="500.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Past Appointments" textAlignment="RIGHT" wrappingWidth="255.21630859375">
+                                             <font>
+                                                <Font name="Trebuchet MS Bold" size="18.0" />
+                                             </font>
+                                          </Text>
+                                          <Label fx:id="reportsPastTotalCountLabel" layoutX="21.0" layoutY="16.0" prefHeight="16.0" prefWidth="143.0" text="Total Count: " textFill="LIGHTGRAY">
+                                             <font>
+                                                <Font name="Trebuchet MS" size="13.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </AnchorPane>
+                                 </content>
+                              </Tab>
+                          </tabs>
+                        </TabPane>
+                     </children></AnchorPane>
+                    </content>
+                </Tab>
+            </tabs>
+        </TabPane>
+      <Label fx:id="currentUserLabel" contentDisplay="TOP" layoutX="13.0" layoutY="579.0" prefHeight="15.0" prefWidth="269.0" text="Current User: " textFill="#f5f3f4">
+         <font>
+            <Font name="Trebuchet MS Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="generalUseLabel" alignment="CENTER_RIGHT" contentDisplay="TOP" layoutX="300.0" layoutY="579.0" prefHeight="15.0" prefWidth="489.0" text="For General Use" textAlignment="RIGHT" textFill="#a4161a" visible="false">
+         <font>
+            <Font name="Trebuchet MS Bold" size="12.0" />
+         </font>
+      </Label>
+    </children>
+</AnchorPane>
