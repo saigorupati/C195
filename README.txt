@@ -2,8 +2,7 @@ C195 Scheduling Project
 The purpose of this project was to create a scheduling application to create customers and appointments and store it to a database.
 
 Author: Sainikit Gorupati
-Contact Info: sgorup1@wgu.edu
-Application Version: 1.0
+Application Version: 1.1
 Date Submitted: 12/14/2021
 
 IDE: IntelliJ IDEA 2021.2.2 (Ultimate Edition)
