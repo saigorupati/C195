@@ -1,6 +1,5 @@
 C195 Scheduling Project
-The purpose of this project was to create a scheduling application to create customers and appointments and store it
-to a database.
+The purpose of this project was to create a scheduling application to create customers and appointments and store it to a database.
 
 Author: Sainikit Gorupati
 Contact Info: sgorup1@wgu.edu
